@@ -1,0 +1,217 @@
+
+
+================================================================
+== Vivado HLS Report for 'matrix_mult'
+================================================================
+* Date:           Mon May  5 16:56:49 2025
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        matrix_mult_both
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flga2104-1-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 7.693 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      127|      127| 1.270 us | 1.270 us |  127|  127|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------------------+----------------------+---------+---------+----------+----------+-----+-----+---------+
+        |                                   |                      |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+        |              Instance             |        Module        |   min   |   max   |    min   |    max   | min | max |   Type  |
+        +-----------------------------------+----------------------+---------+---------+----------+----------+-----+-----+---------+
+        |tmp_aesl_mux_load_12i32P_fu_136    |aesl_mux_load_12i32P  |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
+        |tmp_1_aesl_mux_load_12i32P_fu_165  |aesl_mux_load_12i32P  |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
+        +-----------------------------------+----------------------+---------+---------+----------+----------+-----+-----+---------+
+
+        * Loop: 
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                 |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1         |      126|      126|        42|          -|          -|     3|    no    |
+        | + Loop 1.1      |       40|       40|        10|          -|          -|     4|    no    |
+        |  ++ Loop 1.1.1  |        8|        8|         2|          -|          -|     4|    no    |
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+-----+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++---------------------+---------+-------+---------+---------+-----+
+|DSP                  |        -|      -|        -|        -|    -|
+|Expression           |        -|      3|        0|      160|    -|
+|FIFO                 |        -|      -|        -|        -|    -|
+|Instance             |        0|      -|       36|      152|    -|
+|Memory               |        -|      -|        -|        -|    -|
+|Multiplexer          |        -|      -|        -|       69|    -|
+|Register             |        -|      -|       34|        -|    -|
++---------------------+---------+-------+---------+---------+-----+
+|Total                |        0|      3|       70|      381|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available SLR        |     1440|   2280|   788160|   394080|  320|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization SLR (%)  |        0|   ~0  |    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available            |     4320|   6840|  2364480|  1182240|  960|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization (%)      |        0|   ~0  |    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------+----------------------------+---------+-------+----+----+-----+
+    |              Instance             |           Module           | BRAM_18K| DSP48E| FF | LUT| URAM|
+    +-----------------------------------+----------------------------+---------+-------+----+----+-----+
+    |tmp_aesl_mux_load_12i32P_fu_136    |aesl_mux_load_12i32P        |        0|      0|   0|  56|    0|
+    |tmp_1_aesl_mux_load_12i32P_fu_165  |aesl_mux_load_12i32P        |        0|      0|   0|  56|    0|
+    |matrix_mult_AXILiteS_s_axi_U       |matrix_mult_AXILiteS_s_axi  |        0|      0|  36|  40|    0|
+    +-----------------------------------+----------------------------+---------+-------+----+----+-----+
+    |Total                              |                            |        0|      0|  36| 152|    0|
+    +-----------------------------------+----------------------------+---------+-------+----+----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+    |              Variable Name              | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+    |mul_ln15_fu_308_p2                       |     *    |      3|  0|  20|          32|          32|
+    |add_ln15_2_fu_244_p2                     |     +    |      0|  0|  15|           5|           5|
+    |i_fu_200_p2                              |     +    |      0|  0|   9|           2|           1|
+    |j_fu_234_p2                              |     +    |      0|  0|  11|           3|           1|
+    |k_fu_268_p2                              |     +    |      0|  0|  11|           3|           1|
+    |matrix_out_Din_A                         |     +    |      0|  0|  39|          32|          32|
+    |tmp_1_aesl_mux_load_12i32P_fu_165_empty  |     +    |      0|  0|   7|           4|           4|
+    |sub_ln15_1_fu_222_p2                     |     -    |      0|  0|  15|           5|           5|
+    |sub_ln15_fu_296_p2                       |     -    |      0|  0|   7|           4|           4|
+    |icmp_ln12_fu_194_p2                      |   icmp   |      0|  0|   8|           2|           2|
+    |icmp_ln13_fu_228_p2                      |   icmp   |      0|  0|   9|           3|           4|
+    |icmp_ln14_fu_262_p2                      |   icmp   |      0|  0|   9|           3|           4|
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                    |          |      3|  0| 160|          98|          95|
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------+----+-----------+-----+-----------+
+    |       Name       | LUT| Input Size| Bits| Total Bits|
+    +------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm         |  33|          6|    1|          6|
+    |i_0_reg_102       |   9|          2|    2|          4|
+    |j_0_reg_114       |   9|          2|    3|          6|
+    |k_0_reg_125       |   9|          2|    3|          6|
+    |matrix_out_WEN_A  |   9|          2|    4|          8|
+    +------------------+----+-----------+-----+-----------+
+    |Total             |  69|         14|   13|         30|
+    +------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+---+----+-----+-----------+
+    |           Name          | FF| LUT| Bits| Const Bits|
+    +-------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                |  5|   0|    5|          0|
+    |i_0_reg_102              |  2|   0|    2|          0|
+    |i_reg_324                |  2|   0|    2|          0|
+    |j_0_reg_114              |  3|   0|    3|          0|
+    |j_reg_337                |  3|   0|    3|          0|
+    |k_0_reg_125              |  3|   0|    3|          0|
+    |k_reg_355                |  3|   0|    3|          0|
+    |matrix_out_addr_reg_342  |  4|   0|    4|          0|
+    |sub_ln15_1_reg_329       |  5|   0|    5|          0|
+    |trunc_ln15_1_reg_360     |  2|   0|    2|          0|
+    |zext_ln15_2_reg_347      |  2|   0|    4|          2|
+    +-------------------------+---+----+-----+-----------+
+    |Total                    | 34|   0|   36|          2|
+    +-------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+--------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  | Source Object|    C Type    |
++------------------------+-----+-----+------------+--------------+--------------+
+|s_axi_AXILiteS_AWVALID  |  in |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_AWREADY  | out |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_AWADDR   |  in |    4|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_WVALID   |  in |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_WREADY   | out |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_WDATA    |  in |   32|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_WSTRB    |  in |    4|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_ARVALID  |  in |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_ARREADY  | out |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_ARADDR   |  in |    4|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_RVALID   | out |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_RREADY   |  in |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_RDATA    | out |   32|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_RRESP    | out |    2|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_BVALID   | out |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_BREADY   |  in |    1|    s_axi   |   AXILiteS   |  return void |
+|s_axi_AXILiteS_BRESP    | out |    2|    s_axi   |   AXILiteS   |  return void |
+|ap_clk                  |  in |    1| ap_ctrl_hs |  matrix_mult | return value |
+|ap_rst_n                |  in |    1| ap_ctrl_hs |  matrix_mult | return value |
+|interrupt               | out |    1| ap_ctrl_hs |  matrix_mult | return value |
+|matrix_1_0_0            |  in |   32|   ap_none  | matrix_1_0_0 |    pointer   |
+|matrix_1_0_1            |  in |   32|   ap_none  | matrix_1_0_1 |    pointer   |
+|matrix_1_0_2            |  in |   32|   ap_none  | matrix_1_0_2 |    pointer   |
+|matrix_1_0_3            |  in |   32|   ap_none  | matrix_1_0_3 |    pointer   |
+|matrix_1_1_0            |  in |   32|   ap_none  | matrix_1_1_0 |    pointer   |
+|matrix_1_1_1            |  in |   32|   ap_none  | matrix_1_1_1 |    pointer   |
+|matrix_1_1_2            |  in |   32|   ap_none  | matrix_1_1_2 |    pointer   |
+|matrix_1_1_3            |  in |   32|   ap_none  | matrix_1_1_3 |    pointer   |
+|matrix_1_2_0            |  in |   32|   ap_none  | matrix_1_2_0 |    pointer   |
+|matrix_1_2_1            |  in |   32|   ap_none  | matrix_1_2_1 |    pointer   |
+|matrix_1_2_2            |  in |   32|   ap_none  | matrix_1_2_2 |    pointer   |
+|matrix_1_2_3            |  in |   32|   ap_none  | matrix_1_2_3 |    pointer   |
+|matrix_2_0_0            |  in |   32|   ap_none  | matrix_2_0_0 |    pointer   |
+|matrix_2_0_1            |  in |   32|   ap_none  | matrix_2_0_1 |    pointer   |
+|matrix_2_0_2            |  in |   32|   ap_none  | matrix_2_0_2 |    pointer   |
+|matrix_2_1_0            |  in |   32|   ap_none  | matrix_2_1_0 |    pointer   |
+|matrix_2_1_1            |  in |   32|   ap_none  | matrix_2_1_1 |    pointer   |
+|matrix_2_1_2            |  in |   32|   ap_none  | matrix_2_1_2 |    pointer   |
+|matrix_2_2_0            |  in |   32|   ap_none  | matrix_2_2_0 |    pointer   |
+|matrix_2_2_1            |  in |   32|   ap_none  | matrix_2_2_1 |    pointer   |
+|matrix_2_2_2            |  in |   32|   ap_none  | matrix_2_2_2 |    pointer   |
+|matrix_2_3_0            |  in |   32|   ap_none  | matrix_2_3_0 |    pointer   |
+|matrix_2_3_1            |  in |   32|   ap_none  | matrix_2_3_1 |    pointer   |
+|matrix_2_3_2            |  in |   32|   ap_none  | matrix_2_3_2 |    pointer   |
+|matrix_out_Addr_A       | out |   32|    bram    |  matrix_out  |     array    |
+|matrix_out_EN_A         | out |    1|    bram    |  matrix_out  |     array    |
+|matrix_out_WEN_A        | out |    4|    bram    |  matrix_out  |     array    |
+|matrix_out_Din_A        | out |   32|    bram    |  matrix_out  |     array    |
+|matrix_out_Dout_A       |  in |   32|    bram    |  matrix_out  |     array    |
+|matrix_out_Clk_A        | out |    1|    bram    |  matrix_out  |     array    |
+|matrix_out_Rst_A        | out |    1|    bram    |  matrix_out  |     array    |
++------------------------+-----+-----+------------+--------------+--------------+
+
