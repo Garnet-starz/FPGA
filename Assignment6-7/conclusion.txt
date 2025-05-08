@@ -2,4 +2,5 @@ The pragmas that were the most effective in reducing resource utilization was HL
 ARRAY_PARTITION and HLS ALLOCATE. While ALLOCATE minimized resource usage, it 
 increased the latency, so I added two solutions, one with ALLOCATE and one without.
 
-The pragma that was the most effective for timing performance was HLS PIPELINE.
+The pragma that were the most effective for timing performance were HLS PIPELINE
+and HLS INLINE.
