@@ -1,0 +1,4 @@
+The pragma that was the most effective in reducing resource utilization was HLS
+ARRAY_PARTITION.
+
+The pragma that was the most effective in reducing resource utilization was HLS PIPELINE.
