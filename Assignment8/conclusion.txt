@@ -1,0 +1,2 @@
+I was able to decrease the latency from on the order of 500,000 to 4009. I focused mostly on
+minimizing the latency.
