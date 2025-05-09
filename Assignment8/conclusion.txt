@@ -1,2 +1,2 @@
-I was able to decrease the latency from on the order of 500,000 to 4009. I focused mostly on
-minimizing the latency.
+I was able to decrease the latency from 532,609 to 4099. While this increased the resource usage,
+I thought it to be a fine tradeoff.
