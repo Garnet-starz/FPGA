@@ -1,4 +1,4 @@
-1.
+1. I was unable to observe a difference in the performance reports.
 
 2. Partitioning both dimensions of the matrices dcreased the latency and decreased the amount of
 flip flops and LUTs.
